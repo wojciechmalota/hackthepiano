@@ -548,6 +548,10 @@ $(function(){
 		}
 	}, settings.animationInterval);
 
+	var updateResults = function(){
+		$('#reactionTime').html((stats.averageTime / 1000).toFixed(2)+'s');
+		$('#accuracy').html((100 * stats.numberOfCorrectAnswers / (stats.numberOfCorrectAnswers + stats.numberOfWrongAnswers)).toFixed(2)+'%');
+	};
 	var findFirstNoteIndex = function(){
 		for (var i = 0; i < state.activeNotes.length; i++)
 		{
@@ -564,10 +568,19 @@ $(function(){
 		if (!symbol.notes || !symbol.notes.length)
 			return;
 		
+		var found = false;
 		symbol.notes.forEach(function(n){
-			if (n.sound == note)
-				n.isActive = isActive;
+			if (n.sound != note)
+				return;
+			
+			n.isActive = isActive;
+			found = true;
 		});
+		if (!found && isActive)
+		{
+			stats.numberOfWrongAnswers++;
+			updateResults();
+		}
 	};
 	var noteEvent = function(note, isOn){
 		var activeNoteIndex = findFirstNoteIndex();
@@ -592,7 +605,8 @@ $(function(){
 				stats.averageTime = activeNote.time;
 			else
 				stats.averageTime = (1 - settings.averageAlpha) * stats.averageTime + settings.averageAlpha * activeNote.time;
-			console.log(stats);
+			stats.numberOfCorrectAnswers++;
+			updateResults();
 
 			removeSymbolsSet(activeNoteIndex);
 		}
