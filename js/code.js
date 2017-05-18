@@ -180,16 +180,16 @@ $(function(){
 			staffs: [staffs.staff1],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
-			shiftFrom: -4,	shiftTo: 4,
-			sharps: false, flats: false
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4
 		},
 		advanced1: {
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.D, keys.A, keys.E, keys.B, keys.Fsharp, keys.F,
 			       keys.Bflat, keys.Eflat, keys.Aflat, keys.Dflat, keys.Gflat],
-			shiftFrom: -8,	shiftTo: 6,
-			sharps: true, flats: true
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -8,	shiftTo: 6
 		}
 	};
 	var state = {
@@ -373,7 +373,9 @@ $(function(){
 	var getNotesForClef = function(clef, numberOfNotes){
 		var availableNotes = shuffleArray(notes.filter(function(n){
 			var shift = n.clefs[clef].shift;
-			return shift >= state.level.shiftFrom && shift <= state.level.shiftTo;
+			if (shift < state.level.shiftFrom || shift > state.level.shiftTo)
+				return false;
+			return state.level.decorators.includes(n.decorator);
 		})).slice(0, numberOfNotes);
 
 		var selectedNotes = [];
