@@ -1,5 +1,5 @@
 body { background: white; height: 100%; }
-div.staffsContainer { font-size: 50px; position: absolute; left: 0; top: 50%; margin-top: -3.5em; width: 100%; }
+div.staffsContainer { font-size: 50px; margin-top: 2.5em; }
 div.staffContainer { overflow: hidden; padding-top: 0.2em; padding-bottom: 0.2em; }
 div.staff { height: 2em; position: relative; }
 div.staff div.lines { height: 2em; width: 100%; overflow: hidden; white-space: nowrap; position: absolute; left: 0; top: 0; z-index: 100; background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4yLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjIvRFREL3N2ZzEyLmR0ZCI+DQo8c3ZnIHZpZXdCb3g9IjAgLTQ3MCAxMCAxMDY2LjIwMSIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgPGxpbmUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIHgxPSIwIiB4Mj0iMTAiIHkxPSItMjQwIiB5Mj0iLTI0MCIgLz4NCgk8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9Ii0xMjAiIHkyPSItMTIwIiAvPg0KICA8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9IjAiIHkyPSIwIiAvPg0KICA8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9IjEyMCIgeTI9IjEyMCIgLz4NCiAgPGxpbmUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIHgxPSIwIiB4Mj0iMTAiIHkxPSIyNDAiIHkyPSIyNDAiIC8+DQo8L3N2Zz4='); background-repeat: repeat-x; shape-rendering: crispEdges; }
@@ -13,5 +13,6 @@ div.staff div.symbol.note { color: transparent; background: black; opacity: 0.2;
 div.staff div.symbol.note svg { visibility: hidden; }
 div.staff div.symbol.note.visible { color: black; background: transparent; opacity: 1.0; }
 div.staff div.symbol.note.visible svg { visibility: visible; }
-div.buttonsContainer { position: absolute; left: 1em; top: 1em; }
+div.buttonsContainer { position: absolute; left: 1em; top: 1em; right: 1em; }
 div.shareContainer { position: absolute; left: 1em; bottom: 1em; }
+div.levelsContainer { position: absolute; left: 1em; top: 3em; width: 100%; text-align: center; margin-top: 1em; }

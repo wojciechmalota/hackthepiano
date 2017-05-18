@@ -854,5 +854,16 @@ $(function(){
 	else
 		console.log('No MIDI support in your browser');
 
+	var setup = function(level){
+		state.level = levels[level];
+		removeAllNotes();
+	};
 
+	Object.keys(levels).forEach(function(l){
+		$('#level').append('<option value="' + l + '">' + levels[l].name + '</option>');
+	});
+	$('#level').change(function() {
+		setup($(this).val());
+	});
+	setup(Object.keys(levels)[0]);
 });
