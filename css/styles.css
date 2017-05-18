@@ -7,7 +7,7 @@ div.staff div.symbol { height: 2em; position: absolute; top: 0; left: -5000px; z
 div.staff div.symbol svg { height: 2em; display: inline-block; position: relative; top: 0; left: 0; margin-right: 0.025em; margin-left: 0.025em; }
 div.staff div.symbol svg.line { position: absolute; width: 100%; margin: 0; }
 div.staff div.symbol.clef { z-index: 10;  background: white;  padding-right: 0.3em; padding-top: 100em; padding-bottom: 100em; top: -100em; }
-div.staff div.symbol.clef.violin { padding-left: 0.432em; }
+div.staff div.symbol.clef.treble { padding-left: 0.432em; }
 div.staff div.symbol.clef.bass { padding-left: 0.3em; }
 div.staff div.symbol.note { color: transparent; background: black; opacity: 0.2; padding-left: 0.2em; padding-right: 0.2em; margin-left: 0.1em; margin-right: 0.1em; }
 div.staff div.symbol.note svg { visibility: hidden; }
