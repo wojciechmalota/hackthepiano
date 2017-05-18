@@ -193,7 +193,7 @@ $(function(){
 		}
 	};
 	var state = {
-			level: levels.advanced1,
+			level: levels.beginner1,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
@@ -342,8 +342,6 @@ $(function(){
 	var notes = [];
 	for(var i = 0; i < settings.numberOfKeys; i++)
 	{
-		if (i < 15 || i > 60)
-			continue; 
 		var shift = getShift(i);
 		var sound = getSound(i);
 		var decs = getDecorators(i);
