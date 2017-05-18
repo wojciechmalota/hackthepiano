@@ -281,15 +281,64 @@ $(function(){
 		advanced1: {
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
-			keys: [keys.C, keys.G, keys.D, keys.A, keys.E, keys.B, keys.Fsharp, keys.F,
-			       keys.Bflat, keys.Eflat, keys.Aflat, keys.Dflat, keys.Gflat],
+			keys: [keys.C],
 			decorators: [decorators.natural, decorators.sharp, decorators.flat],
-			shiftFrom: -8,	shiftTo: 6,
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced2: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced3: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced4: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced5: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced6: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		advanced7: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat, keys.Fsharp, keys.Gflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
 			shiftsEven: true, shiftsOdd: true
 		}
 	};
 	var state = {
-			level: levels.intermediate6,
+			level: levels.advanced7,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
