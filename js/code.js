@@ -177,12 +177,20 @@ $(function(){
 	};
 	var levels = {
 		beginner1: {
-			staffs: [staffs.staff1, staffs.staff2],
+			staffs: [staffs.staff1],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
 			decorators: [decorators.natural],
 			shiftFrom: -4,	shiftTo: 4,
 			shiftsEven: true, shiftsOdd: false
+		},
+		beginner2: {
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.treble],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: false, shiftsOdd: true
 		},
 		advanced1: {
 			staffs: [staffs.staff1, staffs.staff2],
@@ -195,7 +203,7 @@ $(function(){
 		}
 	};
 	var state = {
-			level: levels.beginner1,
+			level: levels.beginner2,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
