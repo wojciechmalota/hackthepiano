@@ -175,6 +175,7 @@ $(function(){
 	};
 	var levels = {
 		beginner1: {
+			name: 'Beginner 1',
 			staffs: [staffs.staff1],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
@@ -183,6 +184,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: false
 		},
 		beginner2: {
+			name: 'Beginner 2',
 			staffs: [staffs.staff1],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
@@ -191,6 +193,7 @@ $(function(){
 			shiftsEven: false, shiftsOdd: true
 		},
 		beginner3: {
+			name: 'Beginner 3',
 			staffs: [staffs.staff1],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
@@ -199,6 +202,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		beginner4: {
+			name: 'Beginner 4',
 			staffs: [staffs.staff2],
 			clefSets: [clefSets.bass],
 			keys: [keys.C],
@@ -207,6 +211,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: false
 		},
 		beginner5: {
+			name: 'Beginner 5',
 			staffs: [staffs.staff2],
 			clefSets: [clefSets.bass],
 			keys: [keys.C],
@@ -215,6 +220,7 @@ $(function(){
 			shiftsEven: false, shiftsOdd: true
 		},
 		beginner6: {
+			name: 'Beginner 6',
 			staffs: [staffs.staff2],
 			clefSets: [clefSets.bass],
 			keys: [keys.C],
@@ -223,6 +229,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		beginner7: {
+			name: 'Beginner 7',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both],
 			keys: [keys.C],
@@ -231,6 +238,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		intermediate1: {
+			name: 'Intermediate 1',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -239,6 +247,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: false
 		},
 		intermediate2: {
+			name: 'Intermediate 2',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -247,6 +256,7 @@ $(function(){
 			shiftsEven: false, shiftsOdd: true
 		},
 		intermediate3: {
+			name: 'Intermediate 3',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -255,6 +265,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		intermediate4: {
+			name: 'Intermediate 4',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -263,6 +274,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: false
 		},
 		intermediate5: {
+			name: 'Intermediate 5',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -271,6 +283,7 @@ $(function(){
 			shiftsEven: false, shiftsOdd: true
 		},
 		intermediate6: {
+			name: 'Intermediate 6',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -279,6 +292,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced1: {
+			name: 'Advanced 1',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C],
@@ -287,6 +301,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced2: {
+			name: 'Advanced 2',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F],
@@ -295,6 +310,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced3: {
+			name: 'Advanced 3',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat],
@@ -303,6 +319,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced4: {
+			name: 'Advanced 4',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat],
@@ -311,6 +328,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced5: {
+			name: 'Advanced 5',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat],
@@ -319,6 +337,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced6: {
+			name: 'Advanced 6',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
@@ -328,6 +347,7 @@ $(function(){
 			shiftsEven: true, shiftsOdd: true
 		},
 		advanced7: {
+			name: 'Advanced 7',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
