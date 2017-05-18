@@ -1,18 +1,18 @@
 body { background: white; height: 100%; }
 div.staffsContainer { font-size: 50px; margin-top: 2.5em; }
-div.staffContainer { overflow: hidden; padding-top: 0.2em; padding-bottom: 0.2em; }
-div.staff { height: 2em; position: relative; }
+div.staffContainer { overflow: hidden; }
+div.staff { height: 2em; position: relative; top: 0.1em; }
 div.staff div.lines { height: 2em; width: 100%; overflow: hidden; white-space: nowrap; position: absolute; left: 0; top: 0; z-index: 100; background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4yLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjIvRFREL3N2ZzEyLmR0ZCI+DQo8c3ZnIHZpZXdCb3g9IjAgLTQ3MCAxMCAxMDY2LjIwMSIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4NCiAgPGxpbmUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIHgxPSIwIiB4Mj0iMTAiIHkxPSItMjQwIiB5Mj0iLTI0MCIgLz4NCgk8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9Ii0xMjAiIHkyPSItMTIwIiAvPg0KICA8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9IjAiIHkyPSIwIiAvPg0KICA8bGluZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgeDE9IjAiIHgyPSIxMCIgeTE9IjEyMCIgeTI9IjEyMCIgLz4NCiAgPGxpbmUgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjEiIHgxPSIwIiB4Mj0iMTAiIHkxPSIyNDAiIHkyPSIyNDAiIC8+DQo8L3N2Zz4='); background-repeat: repeat-x; shape-rendering: crispEdges; }
-div.staff div.symbol { height: 2em; position: absolute; top: 0; left: -5000px; z-index: 5;  white-space: nowrap; }
+div.staff div.symbol { height: 2em; position: absolute; left: -5000px; z-index: 5;  white-space: nowrap; padding-top: 100em; padding-bottom: 100em; top: -100em; color: transparent; background: black; opacity: 0.2;  }
 div.staff div.symbol svg { height: 2em; display: inline-block; position: relative; top: 0; left: 0; margin-right: 0.025em; margin-left: 0.025em; }
-div.staff div.symbol svg.line { position: absolute; width: 100%; margin: 0; }
-div.staff div.symbol.clef { z-index: 10;  background: white;  padding-right: 0.3em; padding-top: 100em; padding-bottom: 100em; top: -100em; }
+div.staff div.symbol svg.line { position: absolute; width: 100%; margin: 0; margin-top: 100em; }
+div.staff div.symbol.note { padding-left: 0.2em; padding-right: 0.2em; margin-left: 0.1em; margin-right: 0.1em; }
+div.staff div.symbol.note svg { visibility: hidden; }
+div.staff div.symbol.visible { color: black; background: transparent; opacity: 1.0; }
+div.staff div.symbol.visible svg { visibility: visible; }
+div.staff div.symbol.clef { z-index: 10;  background: white; color: black;  padding-right: 0.3em;  opacity: 1.0; }
 div.staff div.symbol.clef.treble { padding-left: 0.432em; }
 div.staff div.symbol.clef.bass { padding-left: 0.3em; }
-div.staff div.symbol.note { color: transparent; background: black; opacity: 0.2; padding-left: 0.2em; padding-right: 0.2em; margin-left: 0.1em; margin-right: 0.1em; }
-div.staff div.symbol.note svg { visibility: hidden; }
-div.staff div.symbol.note.visible { color: black; background: transparent; opacity: 1.0; }
-div.staff div.symbol.note.visible svg { visibility: visible; }
 div.buttonsContainer { position: absolute; left: 1em; top: 1em; right: 1em; }
 div.shareContainer { position: absolute; left: 1em; bottom: 1em; }
-div.levelsContainer { position: absolute; left: 1em; top: 3em; width: 100%; text-align: center; margin-top: 1em; }
+div.levelsContainer { width: 100%; text-align: center; margin-top: 1em; }

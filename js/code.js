@@ -856,6 +856,11 @@ $(function(){
 
 	var setup = function(level){
 		state.level = levels[level];
+		var paddingTop = Math.max(0, state.level.shiftTo - 4) * settings.shiftSize;
+		var paddingBottom = Math.max(0, -state.level.shiftFrom - 4) * settings.shiftSize;
+		
+		$('.staffContainer').css({'padding-top': paddingTop+'em', 'padding-bottom': paddingBottom+'em'});
+		
 		removeAllNotes();
 	};
 
