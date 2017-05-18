@@ -314,6 +314,7 @@ $(function(){
 	var state = {
 			noteIndex: 0,
 			activeKey: null,
+			activeClefSet: null,
 			activeNotes: [],
 			newNoteInterval: settings.newNoteInterval,
 			midiMessages: []
@@ -383,6 +384,8 @@ $(function(){
 		for (var i = state.activeNotes.length - 1; i >= 0; i--)
 			removeSymbolsSet(i);
 		state.noteIndex = 0;
+		state.activeClefSet = null;
+		state.activeKey = null;
 	}
 	var addSymbol = function(staffEl, note){
 		note.time = 0;
@@ -393,8 +396,15 @@ $(function(){
 		}, 10);
 	};
 	var setClefs = function(){
-		state.activeKey = getRandomArrayEl(keys);
 		var clefSet = getRandomArrayEl(clefSets);
+		var key = getRandomArrayEl(keys);
+		
+		if (state.activeClefSet === clefSet && state.activeKey === key)
+			return;
+		
+		state.activeClefSet = clefSet;
+		state.activeKey = key;
+		
 		var position = 0;
 		if (state.activeNotes.length)
 		{
@@ -410,9 +420,9 @@ $(function(){
 			var startPosition = Math.max(100 * staffEl.width(), position);
 			var symbol = $('<div class="symbol clef ' + clef.id + '"></div>');
 			symbol.append(symbols.clefs[staff.clef]);
-			state.activeKey.lines.forEach(function(l){
-				var shift = clef.keys[state.activeKey.decorator][l].shift;
-				symbol.append($(symbols.decorators[state.activeKey.decorator]).css({top: (-shift * settings.shiftSize)+'em'}));
+			key.lines.forEach(function(l){
+				var shift = clef.keys[key.decorator][l].shift;
+				symbol.append($(symbols.decorators[key.decorator]).css({top: (-shift * settings.shiftSize)+'em'}));
 			});
 			
 			addSymbol(staffEl, {type: symbolTypes.clef, symbol: symbol, position: startPosition, staff: staff.id});
