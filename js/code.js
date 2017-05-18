@@ -175,6 +175,19 @@ $(function(){
 	    {staff1: 'violin', staff2: 'violin'},
 	    {staff1: 'bass', staff2: 'bass'}
 	];
+	var state = {
+			noteIndex: 0,
+			activeKey: null,
+			activeClefSet: null,
+			activeNotes: [],
+			newNoteInterval: settings.newNoteInterval,
+			midiMessages: []
+	};
+	var stats = {
+		averageTime: null,
+		numberOfWrongAnswers: 0,
+		numberOfCorrectAnswers: 0
+	};
 	var getShift = function(keyIndex){
 		var base = keyIndex - 39;
 		var octave = Math.floor(base / 12) * 7;
@@ -310,19 +323,6 @@ $(function(){
 				availableClefs[c] = true;
 		});
 		return availableClefs;
-	};
-	var state = {
-			noteIndex: 0,
-			activeKey: null,
-			activeClefSet: null,
-			activeNotes: [],
-			newNoteInterval: settings.newNoteInterval,
-			midiMessages: []
-	};
-	var stats = {
-		averageTime: null,
-		numberOfWrongAnswers: 0,
-		numberOfCorrectAnswers: 0
 	};
 	var notes = [];
 	for(var i = 0; i < settings.numberOfKeys; i++)
