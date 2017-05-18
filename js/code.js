@@ -151,31 +151,49 @@ $(function(){
 			}
 		}
 	};
-	var keys = [
-            {decorator: decorators.sharp, lines: []},
-			{decorator: decorators.sharp, lines: [3]},
-			{decorator: decorators.sharp, lines: [3, 0]},
-			{decorator: decorators.sharp, lines: [3, 0, 4]},
-			{decorator: decorators.sharp, lines: [3, 0, 4, 1]},
-			{decorator: decorators.sharp, lines: [3, 0, 4, 1, 5]},
-			{decorator: decorators.sharp, lines: [3, 0, 4, 1, 5, 2]},
-			{decorator: decorators.flat, lines: [6]},
-			{decorator: decorators.flat, lines: [6, 2]},
-			{decorator: decorators.flat, lines: [6, 2, 5]},
-			{decorator: decorators.flat, lines: [6, 2, 5, 1]},
-			{decorator: decorators.flat, lines: [6, 2, 5, 1, 4]},
-			{decorator: decorators.flat, lines: [6, 2, 5, 1, 4, 0]}
-	];
+	var keys = {
+            C: {decorator: decorators.sharp, lines: []},
+			G: {decorator: decorators.sharp, lines: [3]},
+			D: {decorator: decorators.sharp, lines: [3, 0]},
+			A: {decorator: decorators.sharp, lines: [3, 0, 4]},
+			E: {decorator: decorators.sharp, lines: [3, 0, 4, 1]},
+			B: {decorator: decorators.sharp, lines: [3, 0, 4, 1, 5]},
+			Fsharp: {decorator: decorators.sharp, lines: [3, 0, 4, 1, 5, 2]},
+			F: {decorator: decorators.flat, lines: [6]},
+			Bflat: {decorator: decorators.flat, lines: [6, 2]},
+			Eflat: {decorator: decorators.flat, lines: [6, 2, 5]},
+			Aflat: {decorator: decorators.flat, lines: [6, 2, 5, 1]},
+			Dflat: {decorator: decorators.flat, lines: [6, 2, 5, 1, 4]},
+			Gflat: {decorator: decorators.flat, lines: [6, 2, 5, 1, 4, 0]}
+	};
 	var staffs = {
 	    staff1: {id: 'staff1'},
 	    staff2: {id: 'staff2'}
 	};
-	var clefSets = [
-	    {staff1: 'treble', staff2: 'bass'},
-	    {staff1: 'treble', staff2: 'treble'},
-	    {staff1: 'bass', staff2: 'bass'}
-	];
+	var clefSets = {
+	    both: {staff1: 'treble', staff2: 'bass'},
+	    treble: {staff1: 'treble', staff2: 'treble'},
+	    bass: {staff1: 'bass', staff2: 'bass'}
+	};
+	var levels = {
+		beginner1: {
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.treble],
+			keys: [keys.C],
+			shiftFrom: -4,	shiftTo: 4,
+			sharps: false, flats: false
+		},
+		advanced1: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.D, keys.A, keys.E, keys.B, keys.Fsharp, keys.F,
+			       keys.Bflat, keys.Eflat, keys.Aflat, keys.Dflat, keys.Gflat],
+			shiftFrom: -8,	shiftTo: 6,
+			sharps: true, flats: true
+		}
+	};
 	var state = {
+			level: levels.advanced1,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
@@ -317,10 +335,7 @@ $(function(){
 	var getClefsForNote = function(noteShift){
 		var availableClefs = {};
 		Object.keys(clefs).forEach(function(c){
-			var clef = clefs[c];
-			var shift = noteShift + clef.shift;
-			if (shift >= settings.shiftFrom && shift <= settings.shiftTo)
-				availableClefs[c] = true;
+			availableClefs[c] = {shift: noteShift + clefs[c].shift};
 		});
 		return availableClefs;
 	};
@@ -360,7 +375,8 @@ $(function(){
 	};
 	var getNotesForClef = function(clef, numberOfNotes){
 		var availableNotes = shuffleArray(notes.filter(function(n){
-			return n.clefs[clef];
+			var shift = n.clefs[clef].shift;
+			return shift >= state.level.shiftFrom && shift <= state.level.shiftTo;
 		})).slice(0, numberOfNotes);
 
 		var selectedNotes = [];
@@ -396,8 +412,8 @@ $(function(){
 		}, 10);
 	};
 	var setClefs = function(){
-		var clefSet = getRandomArrayEl(clefSets);
-		var key = getRandomArrayEl(keys);
+		var clefSet = getRandomArrayEl(state.level.clefSets);
+		var key = getRandomArrayEl(state.level.keys);
 		
 		if (state.activeClefSet === clefSet && state.activeKey === key)
 			return;
@@ -412,9 +428,8 @@ $(function(){
 			position = lastSymbol.position + lastSymbol.width;
 		}
 		
-		Object.keys(staffs).forEach(function(s){
-			var staff = staffs[s];
-			staff.clef = clefSet[s];
+		state.level.staffs.forEach(function(staff){
+			staff.clef = clefSet[staff.id];
 			var clef = clefs[staff.clef];
 			var staffEl = $('#' + staff.id);
 			var startPosition = Math.max(100 * staffEl.width(), position);
@@ -455,7 +470,7 @@ $(function(){
 			return;
 		}
 
-		var staff = staffs[getRandomArrayEl(Object.keys(staffs))];
+		var staff = getRandomArrayEl(state.level.staffs);
 		var clef = clefs[staff.clef];
 		var notes = getNotesForClef(staff.clef, settings.notesInSet);
 		var staffEl = $('#' + staff.id);
@@ -471,7 +486,7 @@ $(function(){
 		var numberOfAdditionalTopLines = 0;
 		var numberOfAdditionalBottomLines = 0;
 		notes.forEach(function(note){
-			var shiftInClef = note.shift + clef.shift;
+			var shiftInClef = note.clefs[clef.id].shift;
 			var numberOfAdditionalLines = getNumberOfAdditionalLines(shiftInClef);
 			numberOfAdditionalTopLines = Math.max(numberOfAdditionalTopLines, numberOfAdditionalLines);
 			numberOfAdditionalBottomLines = Math.min(numberOfAdditionalBottomLines, numberOfAdditionalLines);
@@ -484,7 +499,7 @@ $(function(){
 	}, state.newNoteInterval);
 	setInterval(function() {
 		var borderLine = null;
-		var staffWidth = 100 * $('#' + staffs[Object.keys(staffs)[0]].id).width();
+		var staffWidth = 100 * $('#' + state.level.staffs[0].id).width();
 		if (state.activeNotes.length)
 		{
 			var clefSymbol = state.activeNotes[0];
