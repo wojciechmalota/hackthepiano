@@ -1,8 +1,6 @@
 $(function(){
 	var settings = {
 		numberOfKeys: 88,
-		shiftFrom: -8,
-		shiftTo: 6,
 		shiftSize: 0.113,
 		newNoteInterval: 5000,
 		animationStep: 70,
@@ -192,6 +190,94 @@ $(function(){
 			shiftFrom: -4,	shiftTo: 4,
 			shiftsEven: false, shiftsOdd: true
 		},
+		beginner3: {
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.treble],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: true
+		},
+		beginner4: {
+			staffs: [staffs.staff2],
+			clefSets: [clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: false
+		},
+		beginner5: {
+			staffs: [staffs.staff2],
+			clefSets: [clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: false, shiftsOdd: true
+		},
+		beginner6: {
+			staffs: [staffs.staff2],
+			clefSets: [clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: true
+		},
+		beginner7: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: true
+		},
+		intermediate1: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -8,	shiftTo: 8,
+			shiftsEven: true, shiftsOdd: false
+		},
+		intermediate2: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -8,	shiftTo: 8,
+			shiftsEven: false, shiftsOdd: true
+		},
+		intermediate3: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -8,	shiftTo: 8,
+			shiftsEven: true, shiftsOdd: true
+		},
+		intermediate4: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: false
+		},
+		intermediate5: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: false, shiftsOdd: true
+		},
+		intermediate6: {
+			staffs: [staffs.staff1, staffs.staff2],
+			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
 		advanced1: {
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
@@ -203,7 +289,7 @@ $(function(){
 		}
 	};
 	var state = {
-			level: levels.beginner2,
+			level: levels.intermediate6,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
