@@ -350,7 +350,6 @@ $(function(){
 		var line = getLine(i);
 		decs.forEach(function(d){
 			notes.push({index: i,
-				shift: shift + d.shift,
 		    	decorator: d.decorator,
 		    	sound: sound,
 		    	line: line + d.shift,
