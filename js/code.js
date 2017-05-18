@@ -177,7 +177,7 @@ $(function(){
 	};
 	var levels = {
 		beginner1: {
-			staffs: [staffs.staff1],
+			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.treble],
 			keys: [keys.C],
 			decorators: [decorators.natural],
