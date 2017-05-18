@@ -17,7 +17,7 @@ $(function(){
 			  +'<line vector-effect="non-scaling-stroke" stroke="black" stroke-width="1" x1="0" x2="500" y1="0" y2="0" />'
 			  +'</svg>',
 			clefs: {
-				violin: '<svg viewBox="-1447.331 -156.776 288.38 1066.201">'
+				treble: '<svg viewBox="-1447.331 -156.776 288.38 1066.201">'
 					+'<path d="M-1158.951,433.38c0,25.182-6.497,47.303-19.485,66.385c-13.002,19.089-31.472,33.093-55.423,42.02'
 					+'c0.81,4.473,5.072,23.954,12.791,58.466c5.27,23.952,7.917,43.851,7.917,59.687c0,23.949-8.433,43.545-25.276,58.768'
 					+'c-16.851,15.228-37.254,22.84-61.205,22.84c-21.526,0-40.604-6.093-57.248-18.271c-17.871-12.998-26.797-29.841-26.797-50.549'
@@ -102,8 +102,8 @@ $(function(){
 	};
 	var decorators = { sharp: 'sharp', flat: 'flat', natural: 'natural', none: 'none' };
 	var clefs = {
-		violin: {
-			id: 'violin',
+		treble: {
+			id: 'treble',
 			shift: 0,
 			keys: {
 				sharp: [
@@ -171,8 +171,8 @@ $(function(){
 	    staff2: {id: 'staff2'}
 	};
 	var clefSets = [
-	    {staff1: 'violin', staff2: 'bass'},
-	    {staff1: 'violin', staff2: 'violin'},
+	    {staff1: 'treble', staff2: 'bass'},
+	    {staff1: 'treble', staff2: 'treble'},
 	    {staff1: 'bass', staff2: 'bass'}
 	];
 	var state = {
