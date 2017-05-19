@@ -376,6 +376,7 @@ $(function(){
 			activeClefSet: null,
 			activeNotes: [],
 			newNoteInterval: settings.newNoteInterval,
+			newNoteHandler: null,
 			midiMessages: []
 	};
 	var stats = {
@@ -634,8 +635,8 @@ $(function(){
 		for (var i = Math.abs(numberOfAdditionalLines) + 2; i >= 3; i--)
 			symbol.append($(symbols.line).addClass('line').css({top: (-sign * 2 * i * settings.shiftSize)+'em'}));
 	};
-	setTimeout(function createNewNote(){
-		setTimeout(createNewNote, state.newNoteInterval);
+	var createNewNote = function(){
+		state.newNoteHandler = setTimeout(createNewNote, state.newNoteInterval);
 		
 		if (state.activeNotes.length > 50)
 			return;
@@ -675,7 +676,7 @@ $(function(){
 		addAdditionalLines(symbol, numberOfAdditionalTopLines);
 		addAdditionalLines(symbol, numberOfAdditionalBottomLines);
 		addSymbol(staffEl, activeNote);
-	}, state.newNoteInterval);
+	};
 	setInterval(function() {
 		var borderLine = null;
 		var staffWidth = 100 * $('#' + state.level.staffs[0].id).width();
@@ -867,6 +868,12 @@ $(function(){
 		console.log('No MIDI support in your browser');
 
 	var setup = function(level){
+		if (state.newNoteHandler)
+		{
+			clearTimeout(state.newNoteHandler);
+			state.newNoteHandler = null;
+		}
+		
 		state.level = levels[level];
 		var paddingTop = Math.max(0, state.level.shiftTo - 4) * settings.shiftSize;
 		var paddingBottom = Math.max(0, -state.level.shiftFrom - 4) * settings.shiftSize;
@@ -874,6 +881,7 @@ $(function(){
 		$('.staffContainer').css({'padding-top': paddingTop+'em', 'padding-bottom': paddingBottom+'em'});
 		
 		removeAllNotes();
+		createNewNote();
 	};
 
 	Object.keys(levels).forEach(function(l){
