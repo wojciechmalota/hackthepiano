@@ -825,6 +825,13 @@ $(function(){
 	};
 	var onMIDIFailure = function(e){
 	    console.log('No access to MIDI devices or your browser doesn\'t support WebMIDI API. Please use WebMIDIAPIShim ' + e);
+	    
+		ga('send', {
+			nonInteraction: true,
+			hitType: 'event',
+			eventCategory: 'MIDISupport',
+			eventAction: 'no'
+		});
 	};
 	var onMIDIMessage = function(event){
 	    var data = event.data;
@@ -833,6 +840,13 @@ $(function(){
 	    var type = data[0] & 0xf0;
 	    var note = data[1];
 	    var velocity = data[2];
+	
+		ga('send', {
+			nonInteraction: true,
+			hitType: 'event',
+			eventCategory: 'MIDIMessageType',
+			eventAction: type
+		});
 	    
 	    if (type != 144)
 	    	return;
@@ -840,6 +854,13 @@ $(function(){
     	noteEvent(note, velocity > 0);
 	};
 	var onMIDISuccess = function(midiAccess){
+		ga('send', {
+			nonInteraction: true,
+			hitType: 'event',
+			eventCategory: 'MIDISupport',
+			eventAction: 'yes'
+		});
+		
 		for (var entry of midiAccess.inputs) {
 			var input = entry[1];
 			console.log( "Input port [type:'" + input.type + "'] id:'" + input.id +
@@ -847,6 +868,13 @@ $(function(){
 		      "' version:'" + input.version + "'" );
 			
 			entry[1].onmidimessage = onMIDIMessage;
+			
+			ga('send', {
+				nonInteraction: true,
+				hitType: 'event',
+				eventCategory: 'MIDIDevice',
+				eventAction: input.manufacturer + ' ' + input.name
+			});
 		}
 		for (var entry of midiAccess.outputs) {
 			var output = entry[1];
@@ -872,7 +900,16 @@ $(function(){
 	    }).then(onMIDISuccess, onMIDIFailure);
 	}
 	else
+	{
 		console.log('No MIDI support in your browser');
+		
+		ga('send', {
+			nonInteraction: true,
+			hitType: 'event',
+			eventCategory: 'MIDISupport',
+			eventAction: 'no'
+		});
+	}
 
 	var setup = function(level){
 		if (state.newNoteHandler)
@@ -891,6 +928,13 @@ $(function(){
 		removeAllNotes();
 		updateResults();
 		createNewNote();
+		
+		ga('send', {
+			nonInteraction: true,
+			hitType: 'event',
+			eventCategory: 'DifficultyLevel',
+			eventAction: level
+		});
 	};
 
 	Object.keys(levels).forEach(function(l){
