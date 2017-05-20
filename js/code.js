@@ -379,11 +379,12 @@ $(function(){
 			newNoteHandler: null,
 			midiMessages: []
 	};
-	var stats = {
+	var defaultStats = {
 		averageTime: null,
 		numberOfWrongAnswers: 0,
 		numberOfCorrectAnswers: 0
 	};
+	var stats;
 	var getShift = function(keyIndex){
 		var base = keyIndex - 39;
 		var octave = Math.floor(base / 12) * 7;
@@ -754,6 +755,12 @@ $(function(){
 	}, settings.animationInterval);
 
 	var updateResults = function(){
+		if (stats.averageTime === null)
+		{
+			$('#reactionTime').html('--');
+			$('#accuracy').html('--');
+			return;
+		}
 		$('#reactionTime').html((stats.averageTime / 1000).toFixed(2)+'s');
 		$('#accuracy').html((100 * stats.numberOfCorrectAnswers / (stats.numberOfCorrectAnswers + stats.numberOfWrongAnswers)).toFixed(2)+'%');
 	};
@@ -875,12 +882,14 @@ $(function(){
 		}
 		
 		state.level = levels[level];
+		stats = Object.assign({}, defaultStats);
 		var paddingTop = Math.max(0, state.level.shiftTo - 4) * settings.shiftSize;
 		var paddingBottom = Math.max(0, -state.level.shiftFrom - 4) * settings.shiftSize;
 		
 		$('.staffContainer').css({'padding-top': paddingTop+'em', 'padding-bottom': paddingBottom+'em'});
 		
 		removeAllNotes();
+		updateResults();
 		createNewNote();
 	};
 
