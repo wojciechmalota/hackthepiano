@@ -840,7 +840,10 @@ $(function(){
 	    var type = data[0] & 0xf0;
 	    var note = data[1];
 	    var velocity = data[2];
-	
+	    
+	    if (type == 240)
+	    	return;
+	    
 		ga('send', {
 			nonInteraction: true,
 			hitType: 'event',
