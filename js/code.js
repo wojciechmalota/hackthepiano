@@ -370,7 +370,7 @@ $(function(){
 		}
 	};
 	var state = {
-			level: levels.advanced7,
+			level: levels.beginner1,
 			noteIndex: 0,
 			activeKey: null,
 			activeClefSet: null,
@@ -922,6 +922,7 @@ $(function(){
 		}
 		
 		state.level = levels[level];
+		state.newNoteInterval = settings.newNoteInterval;
 		stats = Object.assign({}, defaultStats);
 		var paddingTop = Math.max(0, state.level.shiftTo - 4) * settings.shiftSize;
 		var paddingBottom = Math.max(0, -state.level.shiftFrom - 4) * settings.shiftSize;
