@@ -851,10 +851,10 @@ $(function(){
 			eventAction: type
 		});
 	    
-	    if (type != 144)
-	    	return;
-	    
-    	noteEvent(note, velocity > 0);
+	    if (type == 144)
+	    	noteEvent(note, velocity > 0);
+	    else if (type == 128)
+	    	noteEvent(note, false);
 	};
 	var onMIDISuccess = function(midiAccess){
 		ga('send', {
