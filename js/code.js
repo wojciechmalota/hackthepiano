@@ -298,7 +298,7 @@ $(function(){
 	    both: {staff1: 'treble', staff2: 'bass'},
 	    treble: {staff1: 'treble', staff2: 'treble'},
 	    bass: {staff1: 'bass', staff2: 'bass'},
-	    alto: {staff1: 'alto'}
+	    alto: {staff1: 'alto'},
 	    tenor: {staff1: 'tenor'}
 	};
 	var levels = {
@@ -478,6 +478,226 @@ $(function(){
 			name: 'Advanced 7',
 			staffs: [staffs.staff1, staffs.staff2],
 			clefSets: [clefSets.both, clefSets.treble, clefSets.bass],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat, keys.Fsharp, keys.Gflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_beginner1: {
+			name: 'Alto Beginner 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: false
+		},
+		alto_beginner2: {
+			name: 'Alto Beginner 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: false, shiftsOdd: true
+		},
+		alto_beginner3: {
+			name: 'Alto Beginner 3',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_intermediate1: {
+			name: 'Alto Intermediate 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -8,	shiftTo: 8,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_intermediate2: {
+			name: 'Alto Intermediate 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced1: {
+			name: 'Alto Advanced 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced2: {
+			name: 'Alto Advanced 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced3: {
+			name: 'Alto Advanced 3',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced4: {
+			name: 'Alto Advanced 4',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced5: {
+			name: 'Alto Advanced 5',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced6: {
+			name: 'Alto Advanced 6',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		alto_advanced7: {
+			name: 'Alto Advanced 7',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.alto],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat, keys.Fsharp, keys.Gflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_beginner1: {
+			name: 'Tenor Beginner 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: false
+		},
+		tenor_beginner2: {
+			name: 'Tenor Beginner 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: false, shiftsOdd: true
+		},
+		tenor_beginner3: {
+			name: 'Tenor Beginner 3',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_intermediate1: {
+			name: 'Tenor Intermediate 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -8,	shiftTo: 8,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_intermediate2: {
+			name: 'Tenor Intermediate 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced1: {
+			name: 'Tenor Advanced 1',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced2: {
+			name: 'Tenor Advanced 2',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C, keys.G, keys.F],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced3: {
+			name: 'Tenor Advanced 3',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced4: {
+			name: 'Tenor Advanced 4',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced5: {
+			name: 'Tenor Advanced 5',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced6: {
+			name: 'Tenor Advanced 6',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
+			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
+			       keys.B, keys.Dflat],
+			decorators: [decorators.natural, decorators.sharp, decorators.flat],
+			shiftFrom: -12,	shiftTo: 12,
+			shiftsEven: true, shiftsOdd: true
+		},
+		tenor_advanced7: {
+			name: 'Tenor Advanced 7',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.tenor],
 			keys: [keys.C, keys.G, keys.F, keys.D, keys.Bflat, keys.A, keys.Eflat, keys.E, keys.Aflat,
 			       keys.B, keys.Dflat, keys.Fsharp, keys.Gflat],
 			decorators: [decorators.natural, decorators.sharp, decorators.flat],
