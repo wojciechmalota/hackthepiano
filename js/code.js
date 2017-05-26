@@ -933,7 +933,7 @@ $(function(){
 		var key = getRandomArrayEl(state.level.keys);
 		
 		if (state.activeClefSet === clefSet && state.activeKey === key)
-			return;
+			return false;
 		
 		state.activeClefSet = clefSet;
 		state.activeKey = key;
@@ -959,6 +959,8 @@ $(function(){
 			
 			addSymbol(staffEl, {type: symbolTypes.clef, symbol: symbol, position: startPosition, staff: staff.id});
 		});
+		
+		return true;
 	};
 	var getNumberOfAdditionalLines = function(shift){
 		if (shift > 5)
@@ -981,11 +983,8 @@ $(function(){
 		state.noteIndex--;
 		if (state.noteIndex < 0)
 			state.noteIndex = settings.notesPerClef;
-		if (state.noteIndex == settings.notesPerClef)
-		{
-			setClefs();
+		if (state.noteIndex == settings.notesPerClef && setClefs())
 			return;
-		}
 
 		var staff = getRandomArrayEl(state.level.staffs);
 		var clef = clefs[staff.clef];
