@@ -1103,6 +1103,21 @@ $(function(){
 		note.time = 0;
 		staffEl.append(note.symbol);
 		setTimeout(function(){
+			var width = 0;
+			var left = 0;
+			$('svg', note.symbol).each(function(){
+				if($(this).hasClass('line'))
+					return;
+				left = Math.min(left, $(this).position().left);
+			});
+			console.log(left);
+			$('svg', note.symbol).each(function(){
+				if($(this).hasClass('line'))
+					return;
+				width = Math.max(width, $(this).position().left + $(this).outerWidth() - left);
+			});
+			console.log(width);
+			note.symbol.width(width);
 			note.width = 100 * note.symbol.outerWidth();
 			state.activeNotes.push(note);
 		}, 10);
