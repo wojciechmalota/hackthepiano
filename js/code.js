@@ -6,7 +6,6 @@ $(function(){
 		animationStep: 70,
 		animationInterval: 20,
 		notesPerClef: 10,
-		notesInSet: 1,
 		averageAlpha: 0.05
 	};
 	var symbolTypes = { note: 'note', clef: 'clef' };
@@ -968,6 +967,7 @@ $(function(){
 	    return array;
 	};
 	var getNotesForClef = function(clef, numberOfNotes){
+		var schema = getRandomArrayEl(state.level.schemas);
 		var availableNotes = shuffleArray(notes.filter(function(n){
 			var shift = n.clefs[clef].shift;
 			if (shift < state.level.shiftFrom || shift > state.level.shiftTo)
@@ -976,19 +976,36 @@ $(function(){
 			if ((isEven && !state.level.shiftsEven) || (!isEven && !state.level.shiftsOdd))
 				return false;
 			return state.level.decorators.includes(n.decorator);
-		})).slice(0, numberOfNotes);
+		}));
 
 		var selectedNotes = [];
-		availableNotes.forEach(function(n){
-			n = Object.assign({}, n);
-			var exists = state.activeKey.lines.includes(n.line);
-			if ((exists && state.activeKey.decorator == n.decorator)
-				|| (!exists && n.decorator == decorators.natural))
+		var i;
+		for (i = 0; i < availableNotes.length; i++)
+		{
+			var note = availableNotes[i];
+			selectedNotes = [];
+			var j;
+			for (j = 0; j < schema.intervals.length; j++)
 			{
-				n.decorator = decorators.none;
+				var interval = schema.intervals[j];
+				var foundNotes = availableNotes.filter(function(n){
+					return n.sound == note.sound + interval.offset
+						&& n.clefs[clef].shift == note.clefs[clef].shift + interval.shift;
+				});
+				if (!foundNotes.length)
+					break;
+				var n = Object.assign({}, foundNotes[0]);
+				var exists = state.activeKey.lines.includes(n.line);
+				if ((exists && state.activeKey.decorator == n.decorator)
+					|| (!exists && n.decorator == decorators.natural))
+				{
+					n.decorator = decorators.none;
+				}
+				selectedNotes.push(n);
 			}
-			selectedNotes.push(n);
-		});
+			if (selectedNotes.length == schema.intervals.length)
+				break;
+		}
 		return selectedNotes;
 	};
 	var removeSymbolsSet = function(index){
@@ -1070,7 +1087,7 @@ $(function(){
 
 		var staff = getRandomArrayEl(state.level.staffs);
 		var clef = clefs[staff.clef];
-		var notes = getNotesForClef(staff.clef, settings.notesInSet);
+		var notes = getNotesForClef(staff.clef);
 		var staffEl = $('#' + staff.id);
 		var startPosition = 100 * staffEl.width();
 		if (state.activeNotes.length)
