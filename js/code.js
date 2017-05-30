@@ -541,6 +541,16 @@ $(function(){
 			shiftFrom: -12,	shiftTo: 12,
 			shiftsEven: true, shiftsOdd: true
 		},
+		intervals1: {
+			name: 'Intervals 1 (beta)',
+			staffs: [staffs.staff1],
+			clefSets: [clefSets.treble],
+			schemas: [schemas.intervals.minorThird, schemas.intervals.majorThird],
+			keys: [keys.C],
+			decorators: [decorators.natural],
+			shiftFrom: -4,	shiftTo: 4,
+			shiftsEven: true, shiftsOdd: false
+		},
 		alto_beginner1: {
 			name: 'Alto Beginner 1',
 			staffs: [staffs.staff1],
