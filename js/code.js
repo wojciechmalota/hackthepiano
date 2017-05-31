@@ -1113,8 +1113,9 @@ $(function(){
 			$('svg', note.symbol).each(function(){
 				if($(this).hasClass('line'))
 					return;
-				width = Math.max(width, $(this).position().left + $(this).outerWidth() - left);
+				width = Math.max(width, $(this).position().left + $(this).outerWidth(true) - left);
 			});
+			width = Math.ceil(width);
 			note.symbol.width(width);
 			note.width = 100 * note.symbol.outerWidth();
 			state.activeNotes.push(note);
